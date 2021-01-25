@@ -214,6 +214,14 @@
       <BundleResource Include="Resources\build\XCBuildData\58b3d5aefc063bc1782f71ebd36abe0a-manifest.xcbuild" />
       <BundleResource Include="Resources\build\XCBuildData\08f7f8f276b3b2cc51a18561ee1a01a1-desc.xcbuild" />
       <BundleResource Include="Resources\build\XCBuildData\08f7f8f276b3b2cc51a18561ee1a01a1-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\9ce7c610147e3b653781d4b9c380381c-desc.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\a2ef572e24d90cbb19f41bb79eae554a-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\a2ef572e24d90cbb19f41bb79eae554a-desc.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\9ce7c610147e3b653781d4b9c380381c-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\16f3fb1686274bf9e85ccbad17fb767f-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\16f3fb1686274bf9e85ccbad17fb767f-desc.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\72feb98f2a6c1590221f7ea278f085e2-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\72feb98f2a6c1590221f7ea278f085e2-desc.xcbuild" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

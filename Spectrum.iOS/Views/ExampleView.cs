@@ -30,6 +30,13 @@ namespace Spectrum.iOS.Views
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
+
+            this.MyButton.TouchUpInside += MyButton_TouchUpInside;
+        }
+
+        private void MyButton_TouchUpInside(object sender, EventArgs e)
+        {
+            var x = 3;
         }
 
         public override void DidReceiveMemoryWarning()
