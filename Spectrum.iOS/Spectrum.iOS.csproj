@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-        <ProjectGuid>{269B34CE-A23B-4709-A7BC-B1CD5706A9AD}</ProjectGuid>
+        <ProjectGuid>{433630EE-EC37-4CEB-89E8-C12BE7F2E618}</ProjectGuid>
         <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <TemplateGuid>{edc1b0fa-90cd-4038-8fad-98fe74adb368}</TemplateGuid>
         <OutputType>Exe</OutputType>
@@ -48,6 +48,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <CodesignKey>iPhone Developer</CodesignKey>
         <MtouchDebug>true</MtouchDebug>
+        <MtouchLink>SdkOnly</MtouchLink>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
         <DebugType>none</DebugType>
@@ -58,6 +59,7 @@
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchArch>ARM64</MtouchArch>
         <CodesignKey>iPhone Developer</CodesignKey>
+        <MtouchLink>SdkOnly</MtouchLink>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -71,6 +73,9 @@
       <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
       <PackageReference Include="MvvmCross">
         <Version>7.1.2</Version>
+      </PackageReference>
+      <PackageReference Include="MvvmCross.Platform">
+        <Version>5.7.0</Version>
       </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -123,7 +128,9 @@
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
-        <InterfaceDefinition Include="Views\ExampleView.storyboard" />
+        <InterfaceDefinition Include="Views\SignIn.storyboard" />
+        <InterfaceDefinition Include="Views\CreateAccount.storyboard" />
+        <InterfaceDefinition Include="Views\Success.storyboard" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Info.plist" />
@@ -132,96 +139,35 @@
     <ItemGroup>
         <Compile Include="Main.cs" />
         <Compile Include="AppDelegate.cs" />
-        <Compile Include="SceneDelegate.cs" />
-        <Compile Include="Views\ExampleView.cs" />
-        <Compile Include="Views\ExampleView.designer.cs">
-          <DependentUpon>ExampleView.cs</DependentUpon>
+        <Compile Include="Views\CreateAccountView.cs" />
+        <Compile Include="Views\CreateAccountView.designer.cs">
+          <DependentUpon>CreateAccountView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\SignInView.cs" />
+        <Compile Include="Views\SignInView.designer.cs">
+          <DependentUpon>SignInView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Views\SuccessView.cs" />
+        <Compile Include="Views\SuccessView.designer.cs">
+          <DependentUpon>SuccessView.cs</DependentUpon>
+        </Compile>
+        <Compile Include="LinkerPleaseInclude.cs">
+          <IncludeInPackage>true</IncludeInPackage>
         </Compile>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Spectrum.Core\Spectrum.Core.csproj">
-        <Project>{A931F33E-1382-45BC-9BE1-2B87EE8F5CE8}</Project>
+        <Project>{8F2E4DD4-1418-4725-AF41-4AF495CD628C}</Project>
         <Name>Spectrum.Core</Name>
       </ProjectReference>
     </ItemGroup>
     <ItemGroup>
-      <BundleResource Include="Resources\build\XCBuildData\e636f1390d2631aa5a6388d4bb4aa599-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\a5bf102eb3be888757fc2eef95ec979c-manifest.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\a5bf102eb3be888757fc2eef95ec979c-desc.xcbuild" />
       <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-147e608b8fb678ebee05e06eb52e5d8e" />
-      <BundleResource Include="Resources\build\XCBuildData\5690f59feaeab6565fcd5d026707fac3-desc.xcbuild" />
       <BundleResource Include="Resources\build\XCBuildData\build.db" />
-      <BundleResource Include="Resources\build\XCBuildData\5690f59feaeab6565fcd5d026707fac3-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\e636f1390d2631aa5a6388d4bb4aa599-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-6bc36aa16814f9e7d990cf9570503287" />
-      <BundleResource Include="Resources\build\XCBuildData\228ca46942f8f8124c2d5f8ec2898f49-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\09878323b145cbfaaf3bccc6c5ac95ec-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\09878323b145cbfaaf3bccc6c5ac95ec-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\228ca46942f8f8124c2d5f8ec2898f49-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\7f3a5ecb10070579e7aea15e58170206-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\55c9ca34525100dce7761f7f690f596d-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\55c9ca34525100dce7761f7f690f596d-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\7f3a5ecb10070579e7aea15e58170206-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\808e33fe7b6a5abf05ad19c88f9872b7-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\808e33fe7b6a5abf05ad19c88f9872b7-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\0689b3bdcc527b6c8554975656d97a4d-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\0689b3bdcc527b6c8554975656d97a4d-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\69f1f223b60050d91b033459bb87be48-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\69f1f223b60050d91b033459bb87be48-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\d8ab8d62203e6fe741d2869249ed608c-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-35708d6625e78032151f55d1fe494637" />
-      <BundleResource Include="Resources\build\XCBuildData\d8ab8d62203e6fe741d2869249ed608c-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\c63ec3a8814cfe1aa4b34094d9a8923b-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\c63ec3a8814cfe1aa4b34094d9a8923b-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\f358267393aeb82034334b358dd3ffbe-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\f358267393aeb82034334b358dd3ffbe-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-f90fea7744d28cb1c892b863c514d738" />
-      <BundleResource Include="Resources\build\XCBuildData\68f7da0539ce44e63c719cc78dd66bf6-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\68f7da0539ce44e63c719cc78dd66bf6-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-70439e62d885bfc074947dc95a5d0c68" />
-      <BundleResource Include="Resources\build\XCBuildData\030a2cfe4cea7eb91cec9b8ec3295737-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\030a2cfe4cea7eb91cec9b8ec3295737-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-61448ff41b2ab2aabc3079ff42cf58e3" />
-      <BundleResource Include="Resources\build\XCBuildData\b487dd1995e5bc15a1277bde6a684a12-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\b487dd1995e5bc15a1277bde6a684a12-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\450ba2a3340fc899f0468538d13e0b2f-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\450ba2a3340fc899f0468538d13e0b2f-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-7d97ab0724f70678142d21f372ac52dc" />
-      <BundleResource Include="Resources\build\XCBuildData\f3894f8ce59c475680608e192f79e7cb-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\46c2e195d67333a6af966055e659385c-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\f3894f8ce59c475680608e192f79e7cb-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\46c2e195d67333a6af966055e659385c-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-21fba1e3d2dac8754caf676f79c61ba5" />
-      <BundleResource Include="Resources\build\XCBuildData\4061fa437cb58d46ea14ea0fc80ecfc7-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\6f50fb2e82aeac4f7405544cc5f74294-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\6f50fb2e82aeac4f7405544cc5f74294-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\4061fa437cb58d46ea14ea0fc80ecfc7-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\b4b8ad5c228b432a45eac4b57a43b958-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-28523a214957f2ad406ce939ca287eb9" />
-      <BundleResource Include="Resources\build\XCBuildData\2b58928241ad78212e545fa72d2a9bf9-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\b4b8ad5c228b432a45eac4b57a43b958-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\2b58928241ad78212e545fa72d2a9bf9-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-f0621f4f6df55ef272770d3ca7fffcb1" />
-      <BundleResource Include="Resources\build\XCBuildData\7b2aaaf66af76b63538009a2ca19d997-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\5a530a6b9541187c98ec6b563d0b9186-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\7b2aaaf66af76b63538009a2ca19d997-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\5a530a6b9541187c98ec6b563d0b9186-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\b30ab9aece1a19905a166cfb43ffcc4c-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\b30ab9aece1a19905a166cfb43ffcc4c-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-65552edc0b0f61d47598afff2e4bff3a" />
-      <BundleResource Include="Resources\build\XCBuildData\c3434aea5aa26749589ed35253207cdc-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\c3434aea5aa26749589ed35253207cdc-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\58b3d5aefc063bc1782f71ebd36abe0a-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\BuildDescriptionCacheIndex-2cd9c62fef21451882529d3a4cb23845" />
-      <BundleResource Include="Resources\build\XCBuildData\58b3d5aefc063bc1782f71ebd36abe0a-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\08f7f8f276b3b2cc51a18561ee1a01a1-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\08f7f8f276b3b2cc51a18561ee1a01a1-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\9ce7c610147e3b653781d4b9c380381c-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\a2ef572e24d90cbb19f41bb79eae554a-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\a2ef572e24d90cbb19f41bb79eae554a-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\9ce7c610147e3b653781d4b9c380381c-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\16f3fb1686274bf9e85ccbad17fb767f-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\16f3fb1686274bf9e85ccbad17fb767f-desc.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\72feb98f2a6c1590221f7ea278f085e2-manifest.xcbuild" />
-      <BundleResource Include="Resources\build\XCBuildData\72feb98f2a6c1590221f7ea278f085e2-desc.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\766ddce6e4f877afd33d89027ab7c85d-desc.xcbuild" />
+      <BundleResource Include="Resources\build\XCBuildData\766ddce6e4f877afd33d89027ab7c85d-manifest.xcbuild" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
